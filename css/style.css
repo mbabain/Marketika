@@ -302,3 +302,84 @@ template {
    */
 [hidden] {
   display: none; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Lato', sans-serif; }
+
+.section-inner {
+  width: 1180px;
+  margin: 0 auto; }
+
+.section-header {
+  color: #ffffff;
+  background: url("../img/Header/Background.png") no-repeat 50% 50%;
+  background-size: cover;
+  position: relative; }
+  .section-header .section-inner {
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column; }
+  .section-header::before {
+    content: '';
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #142729;
+    opacity: 0.47; }
+  .section-header-logo {
+    flex-shrink: 1;
+    padding-top: 35px;
+    font-size: 24px;
+    font-weight: 700; }
+  .section-header-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; }
+  .section-header-wrapper {
+    margin: 0 auto; }
+    .section-header-wrapper__tittle {
+      margin-bottom: 17px;
+      text-align: center;
+      font-size: 55px;
+      font-weight: 700;
+      line-height: 60px; }
+    .section-header-wrapper__subtittle {
+      width: 67%;
+      margin: 0 auto 44px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 32px; }
+    .section-header-wrapper__form {
+      display: flex; }
+      .section-header-wrapper__form-input {
+        flex: 1;
+        padding-right: 39.5px; }
+        .section-header-wrapper__form-input input {
+          width: 100%;
+          margin: 0;
+          padding: 16px 20px;
+          border: none;
+          border-radius: 4px;
+          background: rgba(255, 255, 255, 0.25);
+          color: #ffffff;
+          font-size: 16px;
+          outline: none; }
+          .section-header-wrapper__form-input input::placeholder {
+            color: #ffffff; }
+      .section-header-wrapper__form-button button {
+        margin: 0;
+        padding: 16px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        background-image: linear-gradient(to right, #fe985b 0%, #fe4fa7 100%);
+        color: #ffffff;
+        outline: none; }
