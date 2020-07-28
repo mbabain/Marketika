@@ -25,6 +25,27 @@ body {
     margin: 0 auto;
 }
 
+.description-item {
+    &__icon {
+        margin-bottom: 20px;
+    }
+    &__title {
+        margin-bottom: 14px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #414141;
+    }
+    &__text {
+        font-size: 16px;
+        line-height: 1.7;
+        font-weight: 300;
+        color: #6c6c6c;
+    }
+
+}
+
+
 //  / Common
 
 // Header 
@@ -93,9 +114,10 @@ body {
                 padding-right: 39.5px;
 
                 input {
+                    max-width: 375px;
                     width: 100%;
                     margin: 0;
-                    padding: 16px 20px;
+                    padding: 16px 30px;
                     border: none;
                     border-radius: 4px;
                     background: rgba(255, 255, 255, 0.25);
@@ -112,7 +134,7 @@ body {
             &-button {
                 button {
                     margin: 0;
-                    padding: 16px 20px;
+                    padding: 16px 50px;
                     border: none;
                     border-radius: 4px;
                     font-size: 16px;
@@ -126,4 +148,51 @@ body {
 
     }
 
+}
+
+//  / Header
+
+// Promo
+
+.section-promo {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.section-promo-1 {
+    display: flex;
+
+    &__content {
+        padding-right: 94px;
+        flex-basis: 55%;
+
+        .title {
+            margin-bottom: 56px;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #414141;
+        }
+    }
+
+    &__video {
+        flex-basis: 45%;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.section-promo-2 {
+    display: flex;
+    border-top: 1px solid #e2e2e2;
+    padding-top: 86px;
+    margin-top: 120px;
+    text-align: center;
+
+    .description-item + .description-item {
+        margin-left: 40px;
+    }
 }
