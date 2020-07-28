@@ -45,7 +45,6 @@ body {
 
 }
 
-
 //  / Common
 
 // Header 
@@ -194,5 +193,40 @@ body {
 
     .description-item + .description-item {
         margin-left: 40px;
+    }
+}
+
+// / Promo
+
+// Founder
+
+.section-founder {
+    padding-top: 34px;
+    background-color: #f6fafd;
+
+    .section-inner {
+        display: flex;
+    }
+
+    &__img {
+        align-self: flex-end;
+    }
+    &__content {
+        padding-left: 50px;
+        align-self: center;
+
+        &-text {
+            font-size: 24px;
+            line-height: 1.7;
+        }
+        &-name {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        &-post {
+            font-size: 20px;
+            line-height: 1.45;
+        }
     }
 }

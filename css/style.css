@@ -430,3 +430,24 @@ body {
   text-align: center; }
   .section-promo-2 .description-item + .description-item {
     margin-left: 40px; }
+
+.section-founder {
+  padding-top: 34px;
+  background-color: #f6fafd; }
+  .section-founder .section-inner {
+    display: flex; }
+  .section-founder__img {
+    align-self: flex-end; }
+  .section-founder__content {
+    padding-left: 50px;
+    align-self: center; }
+    .section-founder__content-text {
+      font-size: 24px;
+      line-height: 1.7; }
+    .section-founder__content-name {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.2; }
+    .section-founder__content-post {
+      font-size: 20px;
+      line-height: 1.45; }
