@@ -1,4 +1,6 @@
-@import 'normalize.scss';
+$color-main: #6c6c6c;
+$color-second: #414141;
+$color-white: #ffffff;
 
 // Mixins
 
@@ -16,6 +18,8 @@
 
 body {
     @include font-lato;
+    
+    color: $color-main; 
 }
 
 .section-outer {}
@@ -43,6 +47,40 @@ body {
         color: #6c6c6c;
     }
 
+}
+
+@mixin start-button {
+    display: inline-block;
+    margin: 0;
+    padding: 16px 50px;
+    border-radius: 4px;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-main {
+    @include start-button;
+
+    border: none;
+    background-image: linear-gradient(to right, #fe985b 0%, #fe4fa7 100%);
+    color: $color-white;
+}
+
+.btn-secondary {
+    @include start-button;
+
+    border: 1px solid #414141;
+    background-color: $color-white;
+    color: #414141;
+}
+
+.btn-free {
+    @include start-button;
+
+    border: none;
+    background-color: $color-white;
+    color: #464646;
 }
 
 //  / Common
@@ -98,7 +136,7 @@ body {
         }
 
         &__subtittle {
-            width: 67%;
+            width: 60%;
             margin: 0 auto 44px;
             text-align: center;
             font-size: 18px;
@@ -113,8 +151,7 @@ body {
                 padding-right: 39.5px;
 
                 input {
-                    max-width: 375px;
-                    width: 100%;
+                    width: 375px;
                     margin: 0;
                     padding: 16px 30px;
                     border: none;
@@ -130,18 +167,7 @@ body {
                 }
             }
 
-            &-button {
-                button {
-                    margin: 0;
-                    padding: 16px 50px;
-                    border: none;
-                    border-radius: 4px;
-                    font-size: 16px;
-                    background-image: linear-gradient(to right, #fe985b 0%, #fe4fa7 100%);
-                    color: #ffffff;
-                    outline: none;
-                }
-            }
+            &-button {}
 
         }
 
@@ -171,6 +197,10 @@ body {
             font-weight: 700;
             line-height: 1.4;
             color: #414141;
+        }
+
+        .description-item {
+            margin-top: 28px;
         }
     }
 
@@ -214,12 +244,14 @@ body {
     &__content {
         padding-left: 50px;
         align-self: center;
+        color: $color-second;
 
         &-text {
             font-size: 24px;
             line-height: 1.7;
         }
         &-name {
+            padding-top: 20px;
             font-size: 24px;
             font-weight: 700;
             line-height: 1.2;
@@ -229,4 +261,95 @@ body {
             line-height: 1.45;
         }
     }
+}
+
+// / Founder
+
+// Plans
+
+.section-plans {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    text-align: center;
+
+    &__title {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.4;
+        color: #414141;
+    }
+    &__subtitle {
+        width: 50%;
+        margin:0 auto 110px;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.75;
+    }
+    &__list {
+        display: flex;
+        justify-content: center;
+
+        &-item {
+            flex-basis: 370px;
+            padding: 60px 45px;
+
+            &_title {
+                margin-bottom: 26px;
+                font-size: 14px;
+                line-height: 1.2;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            &_price {
+                margin-bottom: 26px;
+
+                .prefix {
+                    font-size: 72px;
+                    font-weight: 700;
+                    color: #fe4fa7;
+                }
+                .postfix {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #414141;
+                }
+            }
+            &_description {
+                margin-bottom: 60px;
+                font-size: 16px;
+                line-height: 1.75;
+                font-weight: 300;
+            }
+            &_button {}
+
+            &.active {
+                background-color: #f6fafd;
+            }
+        }
+    }
+}
+
+// Free 
+
+.section-free {
+    padding: 120px 0 120px;
+    text-align: center;
+    background-image: linear-gradient(to right, #fe985b 0%, #fe4fa7 100%);
+    color: $color-white;
+
+    &__title {
+        margin-bottom: 27px;
+        font-size: 55px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+    &__description {
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+    &__button {}
 }
