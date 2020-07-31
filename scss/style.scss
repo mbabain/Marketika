@@ -1,6 +1,7 @@
 $color-main: #6c6c6c;
 $color-second: #414141;
 $color-white: #ffffff;
+$color-third: #464646;
 
 // Mixins
 
@@ -38,13 +39,13 @@ body {
         font-size: 18px;
         font-weight: 700;
         line-height: 1.2;
-        color: #414141;
+        color: $color-second;
     }
     &__text {
         font-size: 16px;
         line-height: 1.7;
         font-weight: 300;
-        color: #6c6c6c;
+        color: $color-main;
     }
 
 }
@@ -65,14 +66,24 @@ body {
     border: none;
     background-image: linear-gradient(to right, #fe985b 0%, #fe4fa7 100%);
     color: $color-white;
+
+    &:hover {
+        background-image: linear-gradient(to left, #fe985b 0%, #fe4fa7 100%);
+    }
 }
 
 .btn-secondary {
     @include start-button;
 
-    border: 1px solid #414141;
+    border: 1px solid $color-second;
     background-color: $color-white;
-    color: #414141;
+    color: $color-second;
+    transition: 0.2s;
+
+    &:hover {
+        color: #fe4fa7;
+        border-color: #fe4fa7;
+    }
 }
 
 .btn-free {
@@ -80,14 +91,19 @@ body {
 
     border: none;
     background-color: $color-white;
-    color: #464646;
+    color: $color-third;
+    transition: 0.2s;
+
+    &:hover {
+        color: #fe4fa7;
+    }
 }
 
 //  / Common
 
 // Header 
 .section-header {
-    color: #ffffff;
+    color: $color-white;
     background: url('../img/Header/Background.png') no-repeat 50% 50%;
     background-size: cover;
     position: relative;
@@ -127,6 +143,7 @@ body {
 
     &-wrapper {
         margin: 0 auto;
+
         &__tittle {
             margin-bottom: 17px;
             text-align: center;
@@ -157,17 +174,20 @@ body {
                     border: none;
                     border-radius: 4px;
                     background: rgba(255, 255, 255, 0.25);
-                    color: #ffffff;
+                    color: $color-white;
                     font-size: 16px;
                     outline: none;
+                    transition: 0.2s;
 
                     &::placeholder {
-                        color: #ffffff;
+                        color: $color-white;
+                    }
+
+                    &:focus {
+                        background: rgba(255, 255, 255, 0.5) 
                     }
                 }
             }
-
-            &-button {}
 
         }
 
@@ -196,7 +216,7 @@ body {
             font-size: 36px;
             font-weight: 700;
             line-height: 1.4;
-            color: #414141;
+            color: $color-second;
         }
 
         .description-item {
@@ -276,7 +296,7 @@ body {
         font-size: 36px;
         font-weight: 700;
         line-height: 1.4;
-        color: #414141;
+        color: $color-second;
     }
     &__subtitle {
         width: 50%;
@@ -311,7 +331,7 @@ body {
                 .postfix {
                     font-size: 14px;
                     font-weight: 700;
-                    color: #414141;
+                    color: $color-second;
                 }
             }
             &_description {
@@ -351,5 +371,99 @@ body {
         font-weight: 400;
         line-height: 1.5;
     }
-    &__button {}
+}
+
+// / Free
+
+// Footer
+
+.section-footer {
+    padding: 90px 0 90px;
+    text-align: center;
+    color: $color-footer;
+
+    &__title {
+        margin-bottom: 30px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+    &__nav {
+        margin-bottom: 30px;
+
+        &-link {
+            margin-right: 62px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $color-footer;
+            transition: 0.2s;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.active,
+            &:hover {
+                color: #fe50a6;
+            }
+        }
+    }
+    &__media-links {
+        margin-bottom: 24px;
+
+        &-item {
+            margin-right: 15px;
+            text-decoration: none;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            svg {
+                width: 18px;
+                height: 18px;  
+                fill: $color-third;
+                transition: 0.2s;
+
+                &:hover {
+                    fill: #fe50a6;
+                }
+            }
+        }
+
+        .active {
+            svg {
+                fill: #fe50a6;
+            }
+        }
+    }
+    &__info {
+        display: flex;
+        justify-content: center;
+
+        &-copyright,
+        &-links-item {
+            margin-right: 30px;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            color: $color-footer;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        &-copyright {
+            align-self: flex-end;
+        }
+        &-links {
+            &-item{
+                &:hover {
+                    text-decoration: underline;
+                }  
+            }
+        }
+    }
 }
