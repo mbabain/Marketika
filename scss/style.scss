@@ -1,8 +1,20 @@
+// Variables
+
 $color-main: #6c6c6c;
 $color-second: #414141;
 $color-white: #ffffff;
 $color-third: #464646;
 
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
+$screen-xs-max: 575px;
+$screen-sm-max: 767px;
+$screen-md-max: 991px;
+$screen-lg-max: 1199px;
+// / Varibles
 // Mixins
 
 @mixin font-lato {  
@@ -23,10 +35,13 @@ body {
     color: $color-main; 
 }
 
-.section-outer {}
+.section-outer {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
 .section-inner {
-    width: 1180px;
+    max-width: 1180px;
     margin: 0 auto;
 }
 
@@ -53,9 +68,9 @@ body {
 @mixin start-button {
     display: inline-block;
     margin: 0;
-    padding: 16px 50px;
+    padding: 16px 35px;
     border-radius: 4px;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
     cursor: pointer;
 }
@@ -153,7 +168,7 @@ body {
         }
 
         &__subtittle {
-            width: 60%;
+            width: 80%;
             margin: 0 auto 44px;
             text-align: center;
             font-size: 18px;
@@ -165,10 +180,9 @@ body {
 
             &-input {
                 flex: 1;
-                padding-right: 39.5px;
 
                 input {
-                    width: 375px;
+                    width: 100%;
                     margin: 0;
                     padding: 16px 30px;
                     border: none;
@@ -189,6 +203,28 @@ body {
                 }
             }
 
+            @media (min-width: $screen-md) {
+                &-input {
+                    padding-right: 40px;
+                }
+            }
+
+            @media (max-width: $screen-sm-max) {
+                flex-direction: column;
+
+                input {
+                    margin-bottom: 10px;
+                }
+
+                &-button {
+                    flex: 1;
+
+                    .btn-main {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+            }
         }
 
     }
@@ -208,7 +244,6 @@ body {
     display: flex;
 
     &__content {
-        padding-right: 94px;
         flex-basis: 55%;
 
         .title {
@@ -229,7 +264,25 @@ body {
 
         img {
             width: 100%;
-            height: auto;
+        }
+    }
+
+    @media (max-width: $screen-sm-max) {
+        flex-direction: column;
+
+        &__video {
+            order: -1;
+            margin-bottom: 20px;
+        }
+
+        &__content {
+            padding-right: 0;
+        }
+    }
+
+    @media (min-width: $screen-md) {
+        &__content {
+            padding-right: 94px;
         }
     }
 }
@@ -241,8 +294,18 @@ body {
     margin-top: 120px;
     text-align: center;
 
-    .description-item + .description-item {
-        margin-left: 40px;
+    @media (min-width: $screen-sm) {
+        .description-item + .description-item {
+            margin-left: 40px;
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        flex-direction: column;
+
+        .description-item + .description-item {
+            margin-top: 40px;
+        }
     }
 }
 
@@ -253,19 +316,13 @@ body {
 .section-founder {
     padding-top: 34px;
     background-color: #f6fafd;
+    color: $color-second;
 
     .section-inner {
         display: flex;
     }
 
-    &__img {
-        align-self: flex-end;
-    }
     &__content {
-        padding-left: 50px;
-        align-self: center;
-        color: $color-second;
-
         &-text {
             font-size: 24px;
             line-height: 1.7;
@@ -279,6 +336,33 @@ body {
         &-post {
             font-size: 20px;
             line-height: 1.45;
+        }
+    }
+
+    @media (max-width: $screen-sm-max) {
+        .section-inner {
+            flex-direction: column;
+        }
+
+        &__img {
+            img {
+                max-width: 100%;
+            }
+        }
+
+        &__content {
+            order: -1;
+            margin-bottom: 40px;
+        }
+    }
+
+    @media (min-width: $screen-md) {
+        &__img {
+            align-self: flex-end;
+        }
+        &__content {
+            align-self: center;
+            padding-left: 50px;
         }
     }
 }
@@ -299,8 +383,7 @@ body {
         color: $color-second;
     }
     &__subtitle {
-        width: 50%;
-        margin:0 auto 110px;
+        margin-bottom: 110px;
         font-size: 16px;
         font-weight: 300;
         line-height: 1.75;
@@ -346,13 +429,26 @@ body {
                 background-color: #f6fafd;
             }
         }
+
+        @media (max-width: $screen-sm) {
+            flex-direction: column;
+        }
+    }
+
+    @media (min-width: $screen-sm) {
+        &__subtitle {
+            width: 50%;
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 }
 
 // Free 
 
 .section-free {
-    padding: 120px 0 120px;
+    padding-top: 120px;
+    padding-bottom: 120px;
     text-align: center;
     background-image: linear-gradient(to right, #fe985b 0%, #fe4fa7 100%);
     color: $color-white;
@@ -364,12 +460,17 @@ body {
         line-height: 1.1;
     }
     &__description {
-        width: 50%;
         margin: 0 auto;
         margin-bottom: 40px;
         font-size: 20px;
         font-weight: 400;
         line-height: 1.5;
+    }
+
+    @media (min-width: $screen-lg) {
+        &__description {
+            width: 50%;
+        }
     }
 }
 
@@ -378,9 +479,10 @@ body {
 // Footer
 
 .section-footer {
-    padding: 90px 0 90px;
+    padding-top: 90px;
+    padding-bottom: 90px;
     text-align: center;
-    color: $color-footer;
+    color: $color-third;
 
     &__title {
         margin-bottom: 30px;
@@ -388,28 +490,41 @@ body {
         font-weight: 700;
     }
     &__nav {
+        display: flex;
+        justify-content: center;
         margin-bottom: 30px;
 
         &-link {
-            margin-right: 62px;
             font-size: 14px;
             font-weight: 700;
             line-height: 1.4;
             text-transform: uppercase;
             text-decoration: none;
-            color: $color-footer;
+            color: $color-third;
             transition: 0.2s;
-
-            &:last-child {
-                margin-right: 0;
-            }
 
             &.active,
             &:hover {
                 color: #fe50a6;
             }
         }
+
+        @media (max-width: $screen-sm-max) {
+            flex-direction: column;
+
+            .section-footer__nav-link + .section-footer__nav-link {
+                margin-top: 5px;
+            }
+        }
+
+        @media (min-width: $screen-md) {
+            .section-footer__nav-link + .section-footer__nav-link {
+                margin-left: 60px;
+            }
+        }
     }
+
+
     &__media-links {
         margin-bottom: 24px;
 
@@ -441,29 +556,47 @@ body {
     }
     &__info {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
 
-        &-copyright,
-        &-links-item {
-            margin-right: 30px;
+        &-copyright {
             font-size: 14px;
             font-weight: 400;
             text-decoration: none;
-            color: $color-footer;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-        &-copyright {
-            align-self: flex-end;
+            color: $color-third;
         }
         &-links {
-            &-item{
+            display: flex;
+
+            &-item {
+                & + .section-footer__info-links-item {
+                    margin-left: 20px;
+                }
+
+                font-size: 14px;
+                font-weight: 400;
+                text-decoration: none;
+                color: $color-third;
+
                 &:hover {
                     text-decoration: underline;
-                }  
+                } 
+            }
+
+            @media (max-width: $screen-sm-max) {
+                margin-top: 20px;
+                justify-content: center;
+        
             }
         }
+
+        @media (max-width: $screen-sm-max) {
+            flex-direction: column;
+        }
+    }
+
+    
+    @media (min-width: $screen-xl) {
+        width: 60%;
+        margin: 0 auto;
     }
 }
